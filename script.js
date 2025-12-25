@@ -112,5 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+
+  // Track selection buttons
+  const trackSelectButtons = document.querySelectorAll('.track-select');
+  trackSelectButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Toggle selected state
+      const isSelected = this.classList.toggle('selected');
+      
+      // Update button text (checkmark is added via CSS ::before)
+      if (isSelected) {
+        this.textContent = 'Selected';
+      } else {
+        this.textContent = 'Select';
+      }
+    });
+  });
 });
 
